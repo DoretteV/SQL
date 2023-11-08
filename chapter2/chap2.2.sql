@@ -12,5 +12,5 @@ WHERE first_name LIKE 'S%'
 -- 3	
 SELECT *
 FROM teachers
-WHERE hire_date > '2010-01-01'
+WHERE hire_date >= '2010-01-01'
 ORDER BY salary DESC;
