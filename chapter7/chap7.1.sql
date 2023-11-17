@@ -9,7 +9,7 @@ CREATE TABLE natural_key_example (
 
 -- Drop the table before trying again
 DROP TABLE natural_key_example;
-
+ 
 -- As a table constraint
 CREATE TABLE natural_key_example (
     license_id varchar(10),
