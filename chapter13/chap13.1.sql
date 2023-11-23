@@ -130,6 +130,8 @@ FROM crime_reports;
 
 -- Listing 13-9: Updating the crime_reports date_1 column
 
+SET datestyle = 'ISO, MDY';
+
 UPDATE crime_reports
 SET date_1 = 
 (
@@ -189,6 +191,7 @@ SET date_1 =
 -- Listing 13-11: Viewing selected crime data
 
 SELECT date_1,
+       date_2,
        street,
        city,
        crime_type
