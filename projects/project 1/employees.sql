@@ -22,25 +22,29 @@ CREATE TABLE IF NOT EXISTS public."Department"
 (
     depart_id integer NOT NULL,
     depart_name character varying(50) NOT NULL,
-    depart_city character varying(50) NOT NULL
+    depart_city character varying(50) NOT NULL,
+    PRIMARY KEY (depart_id)
 );
 
 CREATE TABLE IF NOT EXISTS public."Roles"
 (
     role_id integer NOT NULL,
-    role character varying NOT NULL
+    role character varying NOT NULL,
+    PRIMARY KEY (role_id)
 );
 
 CREATE TABLE IF NOT EXISTS public."Salaries"
 (
     salary_id integer NOT NULL,
-    salary_pa integer NOT NULL
+    salary_pa integer NOT NULL,
+    PRIMARY KEY (salary_id)
 );
 
 CREATE TABLE IF NOT EXISTS public."Overtime Hours"
 (
     overtime_id integer NOT NULL,
-    overtime_hours numeric NOT NULL
+    overtime_hours numeric NOT NULL,
+    PRIMARY KEY (overtime_id)
 );
 
 ALTER TABLE IF EXISTS public."Employees"
@@ -74,11 +78,14 @@ ALTER TABLE IF EXISTS public."Employees"
     ON DELETE NO ACTION
     NOT VALID;
 
+END;
+
 INSERT INTO public."Employees" (emp_id, first_name, surname, gender, address, email, depart_id, role_id, salary_id, overtime_id)
 VALUES	('1', 'Chris', 'Frost', 'M', '10 Protea Street, Gauteng', 'cfrost@gmail.com', 10, 11, 12, 13),
 		('2', 'Mandy', 'Clark', 'F', '258 Rose Avenue, Rustenburg', 'mclark@gmail.com', 20, 21, 22, 23),
 		('3', 'Peter', 'Short', 'M', '26 Lily Avenue, Cape Town', 'pshort@gmail.com', 30, 31, 32, 33),
-		('4', 'Beth', 'Dutton', 'F', '8 Oak Tree Place, Eastern Cape', 'bdutton@gmail.com', 40, 41, 42, 43);
+		('4', 'Beth', 'Dutton', 'F', '8 Oak Tree Place, Eastern Cape', 'bdutton@gmail.com', 40, 41, 42, 43),
+		('5', 'Peter', 'Short', 'M', '26 Lily Avenue, Cape Town', 'pshort@gmail.com', 33, 38, 48, 59);
 
 SELECT * FROM public."Employees"
 
@@ -134,5 +141,3 @@ LEFT JOIN
     public."Salaries" s ON e.salary_id = s.salary_id
 LEFT JOIN
     public."Overtime Hours" o ON e.overtime_id = o.overtime_id;
-	
-END;
